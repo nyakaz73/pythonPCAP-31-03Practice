@@ -110,3 +110,62 @@ print('##############the __module__ contains the name of the module that the cla
 
 print(type(example).__module__) #this returns __main__ if it was imported from another module/file it was going to return the name of that module.eg employees
 print(example.__module__) #retunes the name of the module/filename to which its class is being ran from
+
+
+print('#########################__bases__ is a tuple. The tuple contains classes (not class names) which are direct superclasses for the class.\n\n')
+
+print(type(example))
+print('\n########Inheritence##########n\n')
+class A:
+    pass
+        
+class B(A):
+    pass
+
+class C(B):
+    pass
+
+print(A.__bases__)
+print(C.__bases__)
+
+for i in C.__bases__ :
+    print(i.__name__)
+
+def printBaes(cls):
+    for i in cls.__bases__:
+        print(i.__name__)
+
+printBaes(C)
+
+print('######################## issubclass()     vs              isinstance()  ##########################\n')
+print(issubclass(C,A)) #returns True C is a subclass of A
+
+class F:
+    def __init__(self,name):
+        self.name = name
+    
+    def __str__(self):
+        return "My name is {}".format(self.name)
+
+class D(F):
+    def __init__(self,name):
+        super().__init__(name) #Inerit the super constructor if you want to have access to in instance varaibles
+
+
+
+
+a = A()
+b = B()
+c = C()
+
+print(isinstance(b,A)) #returns true since b class B is inheriting fdrom A
+print(isinstance(c,A)) #RETUENS TRUE since c belong to C which belong to B which belong to A
+
+print("############## superclass ########################")
+
+d = D('John')
+
+print(d) #Printing from the __str__ in super class F
+
+
+
