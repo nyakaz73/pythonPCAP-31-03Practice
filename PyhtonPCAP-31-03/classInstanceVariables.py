@@ -140,19 +140,25 @@ printBaes(C)
 print('######################## issubclass()     vs              isinstance()  ##########################\n')
 print(issubclass(C,A)) #returns True C is a subclass of A
 
-class F:
+class G:
+    def __init__(self,name):
+        print('Now in G')
+        self.name = 'Mufindisi'
+    
+    def __str__(self):
+        print('Now in here')
+        return "My name is {}".format(self.name)
+    
+
+class F(G):
     def __init__(self,name):
         self.name = name
     
-    def __str__(self):
-        return "My name is {}".format(self.name)
+    
 
 class D(F):
     def __init__(self,name):
         super().__init__(name) #Inerit the super constructor if you want to have access to in instance varaibles
-
-
-
 
 a = A()
 b = B()
@@ -166,6 +172,38 @@ print("############## superclass ########################")
 d = D('John')
 
 print(d) #Printing from the __str__ in super class F
+print(d.name)
+
+
+print("############# INHERITENCE HIERACHY#@#################\n\n\n")
+print('#############    POLYMOPHISM ###########################') #WHERE a sublcass is alteringthe behavior of a superclass
+
+class One:
+    def __init__(self):
+        self.name = 'One'
+
+    def doit(self):
+        print("doit from One")
+
+    def doanything(self):
+        self.doit()
+
+class Two(One):
+    def __init__(self):
+        super().__init__()
+        self.name = self.name
+
+    def doit(self):
+        print("doit from Two")
+
+one = One()
+two = Two()
+
+one.doanything() #prints do it from One
+two.doanything() #prints do it from Two  , sincce it is being invoked from Two | POLYMOPHISM when a child class is altering the behavior of a super class
+
+print(one.name)
+print(two.name)
 
 
 
