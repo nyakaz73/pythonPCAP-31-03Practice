@@ -282,3 +282,29 @@ for (pz, ch) in [('calzone', 0), ('margherita', 110), ('mafia', 20)]:
 		print(tmce, ':', tmce.cheese)
 	except PizzaError as pe:
 		print(pe, ':', pe.pizza)
+
+
+print('################ GENERATORS #################')
+
+class Squar:
+    def __init__(self, number):
+        self.number = number
+        self.__count = 0
+    
+
+    def __iter__(self):
+        return self
+    
+    def __next__(self):
+        if self.__count > self.number:
+            raise StopIteration
+
+        self.number *= self.number
+        self.__count +=1
+        return self.number
+
+
+x = Squar(2)
+
+for i in Squar(2):
+    print(i)
