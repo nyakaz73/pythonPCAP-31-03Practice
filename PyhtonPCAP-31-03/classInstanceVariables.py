@@ -354,3 +354,16 @@ print(generator_odd_even) #returns a generator object
 
 for _ in generator_odd_even:
     print(_)
+
+
+print('################ LAMBDA FUNCTION ###################################\n\n')
+
+add = lambda x,y : x+y
+
+print(add) #returns lamba function object
+
+print(add(1,2)) #returns 3
+
+sqr = lambda x : x**2
+
+print(sqr(5)) #returns 25
