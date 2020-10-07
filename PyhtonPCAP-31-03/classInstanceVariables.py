@@ -367,3 +367,13 @@ print(add(1,2)) #returns 3
 sqr = lambda x : x**2
 
 print(sqr(5)) #returns 25
+
+'''
+lAMDA FUNCTION THAT RETURNS A GENERATOR
+'''
+generator_pwr = lambda n : ( _**2 for _ in range(n))
+
+print(generator_pwr(6))
+
+for _ in generator_pwr(6):
+    print(_)
