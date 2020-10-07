@@ -338,3 +338,8 @@ for _ in my_generator_multiples_of_two(8):
     multiplesof_list.append(_)
 
 print(multiplesof_list)
+
+
+
+list_odd_even = ['even' if _%2 == 0 else 'odd' for _ in range(10)]
+print(list_odd_even)
