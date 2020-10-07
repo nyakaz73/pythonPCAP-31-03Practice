@@ -288,7 +288,8 @@ print('################ GENERATORS #################')
 
 class Squar:
     def __init__(self, number):
-        self.number = number
+        self.__number = number
+        self.__result = 1
         self.__count = 0
     
 
@@ -296,15 +297,35 @@ class Squar:
         return self
     
     def __next__(self):
-        if self.__count > self.number:
+        if self.__count > self.__number:
             raise StopIteration
 
-        self.number *= self.number
+        self.__result *= self.__result
         self.__count +=1
-        return self.number
+        return self.__result
 
 
 x = Squar(2)
 
 for i in Squar(2):
     print(i)
+
+print('####################   yeild   keyword###########################\n\n')
+'''
+class based generator are not an issue but the invcovinience they come with really need us to think twice before implementing it in a class format way
+The main discomfort it brings is the need to save the state of the iteration between subsequent __iter__ invocations.
+'''
+print('A function cannot be used as a generator becoz of its return statement , howver we can convert it to a generator by adding the yeild stmt')
+print('Note that is isint a function anymoere but a generator object')
+
+def my_generator_multiples_of_two(n):
+    mult = 1
+    for _ in range(n):
+        yield mult
+        mult *=2
+
+print(my_generator_multiples_of_two(10)) #returns a generator object
+
+multiplesof_list = [_ for _ in my_generator_multiples_of_two(8) ]
+
+print(multiplesof_list)
