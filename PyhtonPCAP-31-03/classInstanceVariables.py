@@ -343,3 +343,14 @@ print(multiplesof_list)
 
 list_odd_even = ['even' if _%2 == 0 else 'odd' for _ in range(10)]
 print(list_odd_even)
+
+'''
+Now a Tuple Comprehension is used to create a GENERATOR
+'''
+
+generator_odd_even = ( 'even' if _%2 == 0 else 'odd' for _ in range(10))
+
+print(generator_odd_even) #returns a generator object
+
+for _ in generator_odd_even:
+    print(_)
