@@ -329,3 +329,12 @@ print(my_generator_multiples_of_two(10)) #returns a generator object
 multiplesof_list = [_ for _ in my_generator_multiples_of_two(8) ]
 
 print(multiplesof_list)
+
+'''
+THE ABOUVE LIST COMPREHENSION IS JUST THE SAME AS THE FOLLOWING
+'''
+multiplesof_list = []
+for _ in my_generator_multiples_of_two(8):
+    multiplesof_list.append(_)
+
+print(multiplesof_list)
