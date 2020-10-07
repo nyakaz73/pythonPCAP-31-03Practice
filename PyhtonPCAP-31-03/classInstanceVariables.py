@@ -377,3 +377,10 @@ print(generator_pwr(6))
 
 for _ in generator_pwr(6):
     print(_)
+
+'''
+The above code is the same as
+'''
+def generator_pwr(n):
+    for _ in range(n):
+        yield _**2
