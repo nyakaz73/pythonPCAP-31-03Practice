@@ -395,3 +395,15 @@ print(list(list_double)) #this converts the iterable map object to a list with [
 numbers = (1, 2, 3, 4) 
 result = map(lambda x: x + x, numbers) 
 print(result) 
+
+
+'''
+Listify the string elements in a List of strings
+'''
+
+listified_list = list(map(list, ['hello','world','here']))
+print(listified_list)
+
+#this list function is similar to this
+def listify(string_elemment):
+    return list(string_elemment)  # ==> 'hello' => ['h','e','l','l','o'] listfifying  string
