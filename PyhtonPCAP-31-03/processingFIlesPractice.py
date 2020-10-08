@@ -67,3 +67,51 @@ stream.close()
 
 steam2 = open(my_file,'rb') #read in binary mode
 print(steam2.__class__)  #retubs the _io.BufferedReader class since we are reading as binary
+stream.close()
+
+stream3 = open(my_file, 'r') #default read in text mode
+print(stream3.__class__)
+stream3.close()
+
+try:
+    stream = open('testfile.txt','rt')
+    stream.close()
+except Exception as e:
+    print('Something went wrong {}'.format(e))
+
+
+print('################## Diagnosingin Streaming Errors ###################')
+
+print('Returing error numbers')
+import errno
+try:
+    stream = open('testfile.txt', 'rt')
+    stream.close()
+
+except IOError as e:
+    print(e.errno)
+
+#'This works fine alright but at times we want to be able to know the text represantation of the error #'
+
+try:
+    stream = open('testfile.txt', 'rt')
+    stream.close()
+except Exception as e:
+    if e.errno == errno.ENOENT:
+        print("The file doesn't exist.")
+    elif e.errno == errno.EMFILE:
+        print("You've opened too many files.")
+    else:
+        print("The error number is:", e.errno)
+
+'''
+This works alright but knowing all these error code might be somewhat a huge bag to carry so .
+Lucky to the os module provides us streaming error to represent the error quite nicely  ==========>>>>> strerror()
+'''
+from os import strerror
+try:
+    stream = open('testfile.txt', 'rt')
+    #processing goes here
+    stream.close()
+except Exception as e:
+    print('Something went wrong proceesing the file {}'.format(strerror(e.errno)))
