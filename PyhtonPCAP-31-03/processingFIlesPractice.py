@@ -61,5 +61,9 @@ THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 my_file = os.path.join(THIS_FOLDER, 'testfile.txt')
 
 
-stream = open(my_file,'rt')
-print(stream)
+stream = open(my_file,'rt') #read in text mode
+print(stream.__class__) #returns the TextIOWrapper since we are reading as text
+stream.close()
+
+steam2 = open(my_file,'rb') #read in binary mode
+print(steam2.__class__)  #retubs the _io.BufferedReader class since we are reading as binary
