@@ -1,3 +1,5 @@
+from random import randint, seed
+
 class ExampleClass:
 
     def __init__(self,value=1):
@@ -407,3 +409,16 @@ print(listified_list)
 #this list function is similar to this
 def listify(string_elemment):
     return list(string_elemment)  # ==> 'hello' => ['h','e','l','l','o'] listfifying  string
+
+
+print('############################# filter and lambda ########################')
+'''
+Using a filter with lambda will give you some beautifuly functionality wowww
+'''
+seed()
+random_list =  [randint(-10,10) for _ in range(5)]  #returns a list of random numbers of size 5 from -10 to 10
+
+filtered_list_odd_positive = list(filter(lambda x: x>0 and x%2 !=0, random_list))
+print('random list {}'.format(random_list))
+print(filtered_list_odd_positive) #filtered listr of odd positve numbers
+
