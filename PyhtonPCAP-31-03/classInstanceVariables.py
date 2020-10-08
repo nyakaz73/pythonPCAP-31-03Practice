@@ -422,3 +422,17 @@ filtered_list_odd_positive = list(filter(lambda x: x>0 and x%2 !=0, random_list)
 print('random list {}'.format(random_list))
 print(filtered_list_odd_positive) #filtered listr of odd positve numbers
 
+
+print('###################### CLOSURESERS ##############')
+def makeclosure(par):
+	loc = par
+	def power(*args):
+	    print('VALUE of p {}'.format(*args))
+	    return args[0] ** loc
+	return power
+
+fsqr = makeclosure(2)
+fcub = makeclosure(3)
+
+for i in range(5):
+	print(i, fsqr(i), fcub(i))
