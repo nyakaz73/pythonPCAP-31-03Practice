@@ -384,3 +384,14 @@ The above code is the same as
 def generator_pwr(n):
     for _ in range(n):
         yield _**2
+
+print('################################## map #####################')
+'''
+Returns a map object which is an iterator applied of a given function and an iterable
+'''
+
+list_double = map(lambda x: 2*x, (1,2,3,4,5)) #this returns an iterable map object 
+print(list(list_double)) #this converts the iterable map object to a list with [2,4,6,8,10]
+numbers = (1, 2, 3, 4) 
+result = map(lambda x: x + x, numbers) 
+print(result) 
