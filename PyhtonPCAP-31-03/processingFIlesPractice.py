@@ -115,3 +115,16 @@ try:
     stream.close()
 except Exception as e:
     print('Something went wrong proceesing the file {}'.format(strerror(e.errno)))
+
+
+print('################### READING FILES AND PROCESSING DATA ####################\n\n')
+
+'''
+READING FILES AND PROCESSING DATA
+'''
+try:
+    stream = open(my_file, 'rt', encoding='utf-8')
+    print(stream.read())
+    stream.close()
+except Exception as e:
+    print(strerror(e.errno))
